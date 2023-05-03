@@ -1,0 +1,65 @@
+#include<iostream>
+using namespace std;
+
+struct node
+{
+	char label[20];
+	int count;
+	struct node *ptr[5];
+};
+
+struct node *root = NULL;
+
+void create()
+{
+	root = new node();
+	cout<<"Enter book name: ";
+	cin>>root->label;
+	cout<<"Enter number of chapters: ";
+	cin>>root->count;
+	
+	for (int i = 0; i<root->count; i++)
+	{
+		root->ptr[i] = new node();
+		cout<<"Enter chapter name: ";
+		cin>>root->ptr[i]->label;
+		cout<<"Enter no of sections: ";
+		cin>>root->ptr[i]->count;
+		for (int j; j<root->ptr[i]->count; j++)
+		{
+			root->ptr[i]->ptr[j] = new node();
+			cout<<"Enter section name: ";
+			cin>>root->ptr[i]->ptr[j]->label;
+			cout<<"Enter no of sub sections: ";
+			cin>>root->ptr[i]->ptr[j]->count;
+		}
+	}
+}
+
+void display()
+{
+	cout<<"Book name: ";
+	cout<<root->label<<endl;
+	cout<<"No of Chapters: ";
+	cout<<root->count<<endl;
+	for (int i = 0; i<root->count; i++)
+	{
+		cout<<"Chapter name: ";
+		cout<<root->ptr[i]->label<<endl;
+		cout<<"No of Sections: ";
+		cout<<root->ptr[i]->count<<endl;
+		for (int j; j<root->ptr[i]->count; j++)
+		{
+			cout<<"Section name: ";
+			cout<<root->ptr[i]->ptr[j]->label<<endl;
+			cout<<"No of Sub Sections: ";
+			cout<<root->ptr[i]->ptr[j]->count<<endl;
+		}
+	}
+}
+
+int main()
+{
+	create();
+	display();
+}
