@@ -1,0 +1,48 @@
+#Consider telephone book database of N clients. Make use of a hash table implementation to  quickly  look  up  client‘s  telephone  number.    #Make  use  of  two  collision  handling techniques  and  compare  them  using  number  of  comparisons  required  to  find  a  set  of telephone #numbers
+
+#code:
+
+size = int(input("Enter size: "))
+count = 0
+hasht = [-1 for i in range(0,size)]
+
+def hashf(data):
+    index = int(data % 10)
+    return index
+    
+def insert(data):
+    for i in range(0, size):
+        if hasht[hashf(data)] == -1:
+            hasht[hashf(data)] = data
+        else:
+            hasht[hashf(data)+1] = data
+    
+insert(34)
+insert(24)
+insert(32)          
+
+print(hasht)
+            
+#double hashing
+
+def hash1(data):
+    return int(data % size)
+
+def hash2(data):
+    return int(data % 7)
+
+def dhash(data):
+    for i in range(0, size):
+        return int((hash1(data) + i * hash2(data)) % size)
+    
+def insert(data):
+    for i in range(0, size):
+        if hasht[hash1(data)] == -1:
+            hasht[hash1(data)] = data
+        else:
+            dhash(data)
+            
+insert(16)
+insert(28)
+insert(98)  
+          
