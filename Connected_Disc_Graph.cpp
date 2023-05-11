@@ -13,17 +13,7 @@ using namespace std;
 */
 void dfs(int node, int visited[], vector<vector<int>> adjMatrix, vector<int> &ans, int &count)
 {
-    // visited[node] = 1;
-    // ans.push_back(node);
-    // count++;
-    // // for (int i = 0; i < adjMatrix[node].size(); i++) --> long way of writing below for-loop
-    // for (auto i : adjMatrix[node])
-    // {
-    //     if (visited[i] == 0)
-    //     {
-    //         dfs(i, visited, adjMatrix, ans, count);
-    //     }
-    // }
+    
     visited[node] = 1;
     ans.push_back(node);
     count++;
