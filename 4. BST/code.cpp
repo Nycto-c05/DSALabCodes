@@ -127,7 +127,7 @@ int main()
         root = insert(root, values[i]);
     }
 
-    cout<<"Inorder traversal --> ";
+    cout<<"Preorder traversal --> ";
     preorderTraversal(root);
 
     cout<<endl;
