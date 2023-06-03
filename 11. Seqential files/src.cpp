@@ -30,10 +30,7 @@ public:
         cin >> addr;
     }
 
-    int getRollNo()
-    {
-        return rollno;
-    }
+   
 
     void show()
     {
@@ -58,7 +55,7 @@ int main()
         switch (choice)
         {
         case 1:
-            f.open("student.txt", ios::out);
+            f.open("student.txt",ios::app | ios::out);
         x:
             f1.accept();
             f.write((char *)&f1, sizeof(f1));
