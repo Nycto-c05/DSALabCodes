@@ -71,29 +71,32 @@ def main():
         layout="wide",
         menu_items={
             'About': "A chatbot powered by Google's Gemini AI model and LangChain"
-        }
+        },
+        initial_sidebar_state="collapsed"
     )
     
     # Initialize session state
     initialize_session_state()
     
     # Header
-    st.title("⚡ Gemini-2.0-Flash Chatbot with Memory")
-    st.markdown("*Powered by LangChain + Streamlit*")
+    st.title("📈OUTFITRON")
+    st.markdown("Hi, there. Give me a description of your skin type, color, body type, climate, etc. to help suggest a tailored outfit for you")
     
     # Sidebar: System prompt and settings
     with st.sidebar:
         st.header("Configuration")
+        showSidebarNavigation=False
         
         # API key input
         api_key = os.getenv("GOOGLE_API_KEY", "")
-        provided_api_key = st.text_input(
-            "Google API Key", 
-            value=api_key,
-            type="password",
-            placeholder="Enter your Google API key",
-            help="Get your API key from https://makersuite.google.com/app/apikey"
-        )
+        # provided_api_key = st.text_input(
+        #     "Google API Key", 
+        #     value=api_key,
+        #     type="password",
+        #     placeholder="Enter your Google API key",
+        #     help="Get your API key from https://makersuite.google.com/app/apikey"
+        # )
+        provided_api_key = api_key
         
         # Model selection
         model_name = st.selectbox(
@@ -117,7 +120,7 @@ def main():
         st.header("System Prompt")
         system_prompt = st.text_area(
             "Define assistant behavior:", 
-            value="You are a helpful AI assistant.", 
+            value="You're are a ai fashion suggestor, who will help the user pick outfits based on the gender, body type, skin type, body shape, current climate, skin tone, etc", 
             height=150,
             help="This sets the personality and behavior of the assistant"
         )
